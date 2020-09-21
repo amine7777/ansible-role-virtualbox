@@ -1,5 +1,10 @@
 ---
 # tasks file for virtualbox
+
+#-------UPDATE DISTRIBUTIONS-----------------
+- name: Update OS
+  include_tasks: update_os.yml
+  
 - name: Install VirtualBox
   apt:
     name: "{{ item }}"
