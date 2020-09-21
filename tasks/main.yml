@@ -1,0 +1,51 @@
+---
+# tasks file for virtualbox
+- name: Install VirtualBox
+  apt:
+    name: "{{ item }}"
+  when: ansible_os_family == "Debian"
+  with_items:
+    - '{{ virtualbox_name_debian }}'
+    - '{{ virtualbox_ext_pack_debian }}'
+
+- when: ansible_distribution == "Centos"
+  block:
+    - name: install VirtualBox for CentOS
+      yum:
+        name: "{{ item }}"
+      with_items:
+        - kernel-devel
+        - kernel-headers
+        - make
+        - patch
+        - gcc
+
+    - name: download virtualbox
+      get_url:
+        url: "{{ virtualbox_link_redhat }}"
+        dest: /etc/yum.repos.d/virtualbox.repo
+
+    - name: install VirtualBox for CentOS
+      yum:
+        name: "{{ virtualbox_name_redhat }}"
+
+- when: ansible_distribution == "Fedora"
+  block:
+    - name: install VirtualBox for CentOS
+      yum:
+        name: "{{ item }}"
+      with_items:
+        - kernel-devel
+        - kernel-headers
+        - make
+        - patch
+        - gcc
+
+    - name: download virtualbox
+      get_url:
+        url: "{{ virtualbox_link_redhat }}"
+        dest: /etc/yum.repos.d/virtualbox.repo
+
+    - name: install VirtualBox for CentOS
+      yum:
+        name: "{{ virtualbox_name_redhat }}"
