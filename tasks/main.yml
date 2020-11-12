@@ -8,6 +8,7 @@
 - name: Install VirtualBox
   apt:
     name: "{{ item }}"
+    state: present
   when: ansible_os_family == "Debian"
   with_items:
     - '{{ virtualbox_name_debian }}'
@@ -33,6 +34,7 @@
     - name: install VirtualBox for CentOS
       yum:
         name: "{{ virtualbox_name_redhat }}"
+        state: present
 
 - when: ansible_distribution == "Fedora"
   block:
@@ -54,3 +56,4 @@
     - name: install VirtualBox for CentOS
       yum:
         name: "{{ virtualbox_name_redhat }}"
+        state: present

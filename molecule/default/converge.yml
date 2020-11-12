@@ -10,4 +10,4 @@
 
     - name: Include ansible-role-virtualbox
       include_role:
-        name: "ansible-role-virtualbox"
+        name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
