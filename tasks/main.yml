@@ -2,15 +2,14 @@
 # tasks file for ansible
 - name: Update OS
   include_tasks: update_os.yml
-  
+
 - name: Install VirtualBox
   apt:
-    name: "{{ item }}"
+    name:
+      - '{{ virtualbox_name_debian }}'
+      - '{{ virtualbox_ext_pack_debian }}'
     state: present
-  when: ansible_os_family == "Debian"
-  with_items:
-    - '{{ virtualbox_name_debian }}'
-    - '{{ virtualbox_ext_pack_debian }}'
+  when: ansible_os_family == "Debian"   
 
 - when: ansible_distribution == "Centos"
   block:
