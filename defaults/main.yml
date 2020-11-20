@@ -1,9 +1,12 @@
 ---
 # defaults file for virtualbox
 virtualbox_version: 6.0
+virtualbox_arch: amd64
+
 #DEBIAN
+virtualbox_apt_key: https://www.virtualbox.org/download/oracle_vbox_2016.asc
+virtualbox_apt_repo: "deb [arch={{ virtualbox_arch }}] http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }}  contrib |  tee /etc/apt/sources.list.d/virtualbox.list"
 virtualbox_name_debian: virtualbox-{{ virtualbox_version }}
-virtualbox_ext_pack_debian: virtualbox-ext-pack
 
 #REDHAT
 virtualbox_name_redhat: VirtualBox-{{ virtualbox_version }}
