@@ -12,8 +12,7 @@
 
     - name: Add VirtualBox public key
       apt_key:
-        url: '{{ virtualbox_apt_key }}'
-        state: present
+        url: "{{ virtualbox_apt_key }}"
 
     - name: Add VirtualBox APT repository
       apt_repository:
@@ -22,7 +21,7 @@
 
     - name: Install VirtualBox
       apt:
-        name: '{{ virtualbox_name_debian }}'
+        name: "{{ virtualbox_name_debian }}"
         state: present
   when: ansible_os_family == "Debian"
       
@@ -56,6 +55,9 @@
         name: 
           - kernel-devel
           - kernel-headers
+          - dkms 
+          - elfutils-libelf-devel 
+          - qt5-qtx11extras
           - make
           - patch
           - gcc
