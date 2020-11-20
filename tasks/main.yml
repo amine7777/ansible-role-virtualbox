@@ -26,7 +26,6 @@
         state: present
   when: ansible_os_family == "Debian"
       
-
 - name: Install VirtualBox for Centos dists
   block:
     - name: install VirtualBox for CentOS
