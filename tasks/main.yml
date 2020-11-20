@@ -30,7 +30,12 @@
   block:
     - name: install VirtualBox for CentOS
       yum:
-        name: '@Development tools'
+        name: 
+          - kernel-devel
+          - kernel-headers
+          - make
+          - patch
+          - gcc
         state: present
 
     - name: download virtualbox
@@ -48,7 +53,12 @@
   block:
     - name: install VirtualBox for CentOS
       dnf:
-        name: '@Development tools'
+        name: 
+          - kernel-devel
+          - kernel-headers
+          - make
+          - patch
+          - gcc
         state: present
 
     - name: download virtualbox
