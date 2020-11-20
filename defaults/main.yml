@@ -11,3 +11,12 @@ virtualbox_name_debian: virtualbox-{{ virtualbox_version }}
 #REDHAT
 virtualbox_name_redhat: VirtualBox-{{ virtualbox_version }}
 virtualbox_link_redhat: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+rehl_pkg:
+  - kernel-devel
+  - kernel-headers
+  - dkms 
+  - elfutils-libelf-devel 
+  - qt5-qtx11extras
+  - make
+  - patch
+  - gcc
