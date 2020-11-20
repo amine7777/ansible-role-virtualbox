@@ -1,6 +1,6 @@
 ---
 # defaults file for virtualbox
-virtualbox_version: 6.0
+virtualbox_version: 6.1
 virtualbox_arch: amd64
 
 #DEBIAN
@@ -11,6 +11,10 @@ virtualbox_name_debian: virtualbox-{{ virtualbox_version }}
 #REDHAT
 virtualbox_name_redhat: VirtualBox-{{ virtualbox_version }}
 virtualbox_link_redhat: https://download.virtualbox.org/virtualbox/rpm/el/virtualbox.repo
+
+#FEDORA
+virtualbox_name_fedora: VirtualBox-{{ virtualbox_version }}
+virtualbox_link_fedora: https://download.virtualbox.org/virtualbox/rpm/{{ ansible_distribution | lower }}/virtualbox.repo
 rehl_pkg:
   - kernel-devel
   - kernel-headers

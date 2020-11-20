@@ -27,18 +27,18 @@
       
 - name: Install VirtualBox for Centos dists
   block:
-    - name: install VirtualBox for CentOS
+    - name: install VirtualBox packages
       yum:
         name: "{{ item }}"
         state: present
       with_items: "{{ rehl_pkg }}"
 
-    - name: download virtualbox
+    - name: Download VirtualBox
       get_url:
         url: "{{ virtualbox_link_redhat }}"
         dest: /etc/yum.repos.d/virtualbox.repo
 
-    - name: install VirtualBox for CentOS
+    - name: Install VirtualBox for CentOS
       yum:
         name: "{{ virtualbox_name_redhat }}"
         state: present
@@ -46,19 +46,19 @@
 
 - name: Install VirtualBox for Fedora dists
   block:
-    - name: install VirtualBox for CentOS
+    - name: Install VirtualBox packages
       dnf:
         name: "{{ item }}"
         state: present
       with_items: "{{ rehl_pkg }}"
 
-    - name: download virtualbox
+    - name: Download virtualbox
       get_url:
-        url: "{{ virtualbox_link_redhat }}"
+        url: "{{ virtualbox_link_fedora }}"
         dest: /etc/yum.repos.d/virtualbox.repo
 
-    - name: install VirtualBox for Fedora
+    - name: Install VirtualBox for Fedora
       dnf:
-        name: "{{ virtualbox_name_redhat }}"
+        name: "{{ virtualbox_name_fedora }}"
         state: present
   when: ansible_distribution == "Fedora"

@@ -38,7 +38,7 @@ jobs:
           - debian10
           - ubuntu2004
           - ubuntu1804
-          #- fedora32
+          - fedora32
 
     steps:
       - name: Check out the codebase.
