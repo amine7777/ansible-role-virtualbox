@@ -30,13 +30,8 @@
   block:
     - name: install VirtualBox for CentOS
       yum:
-        name: "{{ item }}"
-      with_items:
-        - kernel-devel
-        - kernel-headers
-        - make
-        - patch
-        - gcc
+        name: '@Development tools'
+        state: present
 
     - name: download virtualbox
       get_url:
@@ -52,22 +47,17 @@
 - name: Install VirtualBox for Fedora dists
   block:
     - name: install VirtualBox for CentOS
-      yum:
-        name: "{{ item }}"
-      with_items:
-        - kernel-devel
-        - kernel-headers
-        - make
-        - patch
-        - gcc
+      dnf:
+        name: '@Development tools'
+        state: present
 
     - name: download virtualbox
       get_url:
         url: "{{ virtualbox_link_redhat }}"
         dest: /etc/yum.repos.d/virtualbox.repo
 
-    - name: install VirtualBox for CentOS
-      yum:
+    - name: install VirtualBox for Fedora
+      dnf:
         name: "{{ virtualbox_name_redhat }}"
         state: present
   when: ansible_distribution == "Fedora"
