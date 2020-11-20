@@ -3,7 +3,7 @@
 - name: Update OS
   include_tasks: update_os.yml
 
-- when: ansible_os_family == "Debian"
+- name: Install VirtualBox for Debian dists
   block:
     - name: Install GPG Agent
       apt:
@@ -24,8 +24,10 @@
       apt:
         name: '{{ virtualbox_name_debian }}'
         state: present
+  when: ansible_os_family == "Debian"
+      
 
-- when: ansible_distribution == "Centos"
+- name: Install VirtualBox for Centos dists
   block:
     - name: install VirtualBox for CentOS
       yum:
@@ -46,8 +48,9 @@
       yum:
         name: "{{ virtualbox_name_redhat }}"
         state: present
+  when: ansible_distribution == "Centos"
 
-- when: ansible_distribution == "Fedora"
+- name: Install VirtualBox for Fedora dists
   block:
     - name: install VirtualBox for CentOS
       yum:
@@ -68,3 +71,4 @@
       yum:
         name: "{{ virtualbox_name_redhat }}"
         state: present
+  when: ansible_distribution == "Fedora"
