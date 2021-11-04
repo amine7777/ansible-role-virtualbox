@@ -21,7 +21,7 @@ These variables helps to manage virtualbox installation.
 
 You can specify your virtualbox version in this variable.
 ```yaml
-virtualbox_version: 0.13.1
+virtualbox_version: 6.1
 virtualbox_arch: amd64
 virtualbox_directory_path: /usr/local/bin
 ```
