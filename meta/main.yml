@@ -3,6 +3,7 @@ dependencies: []
 galaxy_info:
   author: Amine Kahlaoui
   role_name: virtualbox
+  namespace: amine7777
   description: This role installs virtualbox hashicorp on your linux machine.
   issue_tracker_url: https://github.com/amine7777/ansible-role-virtualbox/issues
   company: https://www.cf2a.tv
